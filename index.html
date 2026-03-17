@@ -294,15 +294,8 @@
     position: relative;
     overflow: hidden;
   }
-  .skill-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0;
-    width: 3px; height: 0;
-    background: var(--accent);
-    transition: height 0.3s ease;
-  }
+ 
   .skill-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
-  .skill-card:hover::before { height: 100%; }
 
   .skill-cat {
     font-family: var(--mono);
