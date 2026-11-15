@@ -1,0 +1,695 @@
+/* ==========================================================================
+   Portfolio Julien Saulu
+   Palette reprise du CV : ardoise + sable. Angles francs, bordures 1px,
+   aucune ombre, aucun dégradé.
+   ========================================================================== */
+
+/* ---------- Couleurs : thème clair (par défaut) ---------- */
+:root {
+  --fond: #f5f6f7;
+  --surface: #ffffff;
+  --encre: #262b38;
+  --discret: #596072;
+  --trait: #cdd1d9;
+  --sable: #b99b6b;
+  --lien: #75571d;
+  --sur-sable: #262b38;
+
+  --cote-fond: #3d4352;
+  --cote-encre: #eeeff2;
+  --cote-discret: #b9bdc8;
+  --cote-trait: #565d6e;
+
+  --titres: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  --texte: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --code: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+
+/* ---------- Couleurs : thème sombre ---------- */
+:root[data-theme="dark"] {
+  --fond: #23272f;
+  --surface: #2b303a;
+  --encre: #e9eaee;
+  --discret: #a9afbc;
+  --trait: #474d5a;
+  --sable: #c9ac7c;
+  --lien: #dcc294;
+  --sur-sable: #23272f;
+
+  --cote-fond: #1a1d23;
+  --cote-encre: #e9eaee;
+  --cote-discret: #9fa5b2;
+  --cote-trait: #363b46;
+}
+
+/* Sans JavaScript : on suit le réglage du système */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --fond: #23272f;
+    --surface: #2b303a;
+    --encre: #e9eaee;
+    --discret: #a9afbc;
+    --trait: #474d5a;
+    --sable: #c9ac7c;
+    --lien: #dcc294;
+    --sur-sable: #23272f;
+    --cote-fond: #1a1d23;
+    --cote-encre: #e9eaee;
+    --cote-discret: #9fa5b2;
+    --cote-trait: #363b46;
+  }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--texte);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--titres);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p,
+ul,
+ol,
+dl,
+table {
+  margin: 0;
+}
+
+a {
+  color: var(--lien);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sable);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: var(--code);
+  font-size: 0.92em;
+}
+
+.saut {
+  position: absolute;
+  left: -999rem;
+  top: 0;
+  background: var(--sable);
+  color: var(--sur-sable);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+.saut:focus {
+  left: 0;
+}
+
+/* ---------- Colonne de gauche ---------- */
+.cote {
+  background: var(--cote-fond);
+  color: var(--cote-encre);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.identite {
+  background: var(--sable);
+  color: var(--sur-sable);
+  padding: 2rem 2.6rem 1.8rem 1.6rem;
+  /* Le pan coupé reprend la forme du bandeau de mon CV */
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.identite a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.identite .nom {
+  font-family: var(--titres);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.identite .role {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.bouton-menu {
+  display: none;
+}
+
+.menu {
+  margin-top: 1.4rem;
+  flex: 1;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--cote-trait);
+}
+
+.menu a {
+  display: block;
+  padding: 0.62rem 1.6rem;
+  color: var(--cote-encre);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cote-trait);
+  border-left: 4px solid transparent;
+}
+
+.menu a:hover {
+  border-left-color: var(--cote-discret);
+}
+
+.menu a[aria-current="page"] {
+  border-left-color: var(--sable);
+  font-weight: 600;
+}
+
+.cote-bas {
+  padding: 1.4rem 1.6rem 1.6rem;
+  font-size: 0.9rem;
+  color: var(--cote-discret);
+}
+
+.cote-bas p + p {
+  margin-top: 0.5rem;
+}
+
+.cote-bas a {
+  color: var(--cote-encre);
+}
+
+.bouton-theme {
+  font: inherit;
+  color: var(--cote-encre);
+  background: transparent;
+  border: 1px solid var(--cote-trait);
+  border-radius: 2px;
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.bouton-theme:hover {
+  border-color: var(--sable);
+}
+
+/* ---------- Contenu ---------- */
+main {
+  padding: 4.5rem clamp(1.5rem, 5vw, 5rem) 3rem;
+  max-width: 62rem;
+}
+
+.entete h1 {
+  font-weight: 700;
+  font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  max-width: 22ch;
+}
+
+.entete .chapo {
+  margin-top: 1.4rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 58ch;
+}
+
+.actions {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.62rem 1.1rem;
+  border: 1px solid var(--encre);
+  border-radius: 2px;
+  color: var(--encre);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bouton.plein {
+  background: var(--encre);
+  color: var(--fond);
+}
+
+.bouton:hover {
+  background: var(--sable);
+  border-color: var(--sable);
+  color: var(--sur-sable);
+}
+
+.bloc {
+  margin-top: 4rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--encre);
+}
+
+.bloc > h2 {
+  font-weight: 700;
+  font-size: 1.55rem;
+  letter-spacing: -0.015em;
+}
+
+.bloc > h2 + * {
+  margin-top: 1.3rem;
+}
+
+.prose {
+  max-width: 66ch;
+}
+
+.prose p + p {
+  margin-top: 0.9rem;
+}
+
+.note {
+  color: var(--discret);
+  font-size: 0.95rem;
+  max-width: 66ch;
+}
+
+.bloc .note {
+  margin-top: 1rem;
+}
+
+/* ---------- Fiche (libellé / valeur) ---------- */
+.fiche {
+  border-bottom: 1px solid var(--trait);
+  max-width: 48rem;
+}
+
+.fiche > div {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--trait);
+}
+
+.fiche dt {
+  color: var(--discret);
+}
+
+.fiche dd {
+  margin: 0;
+}
+
+.entete + .fiche {
+  margin-top: 3rem;
+}
+
+/* ---------- Liste en lignes (projets, parcours, expériences) ---------- */
+.lignes {
+  list-style: none;
+  padding: 0;
+  border-bottom: 1px solid var(--trait);
+}
+
+.lignes > li {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: 0.5rem 2rem;
+  padding: 1.3rem 0;
+  border-top: 1px solid var(--trait);
+}
+
+.lignes h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.lignes .gauche .etat {
+  margin-top: 0.55rem;
+}
+
+.lignes .droite {
+  max-width: 60ch;
+}
+
+.lignes .droite p + p,
+.lignes .droite p + ul,
+.lignes .droite ul + p {
+  margin-top: 0.6rem;
+}
+
+.lignes .droite ul {
+  padding-left: 1.1rem;
+}
+
+.lignes .techno {
+  color: var(--discret);
+  font-size: 0.95rem;
+}
+
+.lignes.dates > li {
+  grid-template-columns: 9rem minmax(0, 1fr);
+}
+
+.lignes.dates .gauche {
+  font-family: var(--titres);
+  font-weight: 700;
+}
+
+.lignes.dates h3 {
+  font-size: 1.1rem;
+}
+
+.lignes.dates .droite p {
+  margin-top: 0.2rem;
+  color: var(--discret);
+}
+
+/* ---------- Étiquette d'état ---------- */
+.etat {
+  display: inline-block;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid var(--discret);
+  border-radius: 2px;
+  color: var(--discret);
+}
+
+.etat.fait {
+  background: var(--sable);
+  border-color: var(--sable);
+  color: var(--sur-sable);
+}
+
+.etat.cours {
+  border-color: var(--encre);
+  color: var(--encre);
+}
+
+/* ---------- Tableaux ---------- */
+.defile {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 1rem 0.65rem 0;
+  border-top: 1px solid var(--trait);
+}
+
+thead th {
+  border-top: 0;
+  color: var(--discret);
+  font-weight: 400;
+}
+
+tbody th {
+  font-weight: 600;
+}
+
+table tr:last-child > * {
+  border-bottom: 1px solid var(--trait);
+}
+
+td.vide {
+  color: var(--discret);
+}
+
+.bloc h3.sous-titre {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Veille ---------- */
+.problematique {
+  margin-top: 2.2rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--cote-fond);
+  color: var(--cote-encre);
+  border-left: 6px solid var(--sable);
+  max-width: 48rem;
+}
+
+.problematique p:first-child {
+  font-size: 0.9rem;
+  color: var(--cote-discret);
+}
+
+.problematique p:last-child {
+  font-family: var(--titres);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-top: 0.4rem;
+}
+
+.etapes {
+  padding-left: 1.2rem;
+  max-width: 62ch;
+}
+
+.etapes li + li {
+  margin-top: 0.4rem;
+}
+
+.fiche-veille {
+  background: var(--surface);
+  border: 1px solid var(--trait);
+  padding: 1.6rem 1.8rem 1.8rem;
+  max-width: 48rem;
+}
+
+.fiche-veille + .fiche-veille {
+  margin-top: 1.5rem;
+}
+
+.fiche-veille time {
+  color: var(--discret);
+  font-size: 0.95rem;
+}
+
+.fiche-veille h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-top: 0.2rem;
+}
+
+.fiche-veille .source {
+  margin-top: 0.7rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--trait);
+  font-size: 0.95rem;
+  color: var(--discret);
+}
+
+.fiche-veille h4 {
+  font-family: var(--texte);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.1rem;
+}
+
+.fiche-veille h4 + p {
+  margin-top: 0.25rem;
+}
+
+.fiche-veille .terme {
+  margin-top: 1.3rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--sable);
+  background: var(--fond);
+}
+
+/* ---------- Contact ---------- */
+.contact-liste {
+  max-width: 44rem;
+}
+
+.contact-liste dd a {
+  font-weight: 600;
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+  margin-top: 5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--trait);
+  color: var(--discret);
+  font-size: 0.9rem;
+}
+
+/* ---------- Mobile et tablette ---------- */
+@media (max-width: 54rem) {
+  body {
+    display: block;
+  }
+
+  .cote {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .identite {
+    clip-path: none;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .identite .nom {
+    font-size: 1.45rem;
+  }
+
+  .identite .role {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .js .bouton-menu {
+    display: block;
+    font: inherit;
+    font-weight: 600;
+    color: var(--sur-sable);
+    background: transparent;
+    border: 1px solid var(--sur-sable);
+    border-radius: 2px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .menu {
+    margin-top: 0;
+  }
+
+  .menu ul {
+    border-top: 0;
+  }
+
+  .menu a {
+    padding: 0.7rem 1.25rem;
+  }
+
+  .js .menu,
+  .js .cote-bas {
+    display: none;
+  }
+
+  .js .cote.ouvert .menu,
+  .js .cote.ouvert .cote-bas {
+    display: block;
+  }
+
+  .cote-bas {
+    padding: 1.1rem 1.25rem 1.3rem;
+  }
+
+  main {
+    padding: 2.4rem 1.25rem 2rem;
+  }
+
+  .bloc {
+    margin-top: 3rem;
+  }
+
+  .fiche > div,
+  .lignes > li,
+  .lignes.dates > li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+
+  .lignes > li {
+    padding: 1.1rem 0;
+  }
+
+  .lignes .gauche {
+    margin-bottom: 0.5rem;
+  }
+
+  .lignes.dates .gauche {
+    margin-bottom: 0;
+  }
+
+  .fiche-veille {
+    padding: 1.2rem 1.1rem 1.4rem;
+  }
+
+  .problematique {
+    padding: 1.1rem 1.1rem;
+  }
+
+  .problematique p:last-child {
+    font-size: 1.25rem;
+  }
+
+  table {
+    min-width: 34rem;
+  }
+}
+
+@media print {
+  .cote {
+    display: none;
+  }
+
+  body {
+    display: block;
+  }
+}

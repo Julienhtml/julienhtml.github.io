@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>En entreprise – Julien Saulu</title>
+  <meta name="description" content="Les expériences en entreprise de Julien Saulu et sa recherche de stage pour janvier et février 2027.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23b99b6b'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%23262b38'%3EJS%3C/text%3E%3C/svg%3E">
+  <script>
+    // Applique le thème avant l'affichage pour éviter un flash de couleur.
+    (function () {
+      var r = document.documentElement;
+      r.classList.add("js");
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "dark" && t !== "light") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      r.setAttribute("data-theme", t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="saut" href="#contenu">Aller au contenu</a>
+
+  <header class="cote">
+    <div class="identite">
+      <a href="index.html">
+        <div class="nom">Julien<br>Saulu</div>
+        <div class="role">BTS SIO option SLAM<br>Rouen</div>
+      </a>
+      <button class="bouton-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+
+    <nav class="menu" id="menu" aria-label="Pages du portfolio">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="projets.html">Projets personnels</a></li>
+        <li><a href="bts.html">Réalisations en BTS</a></li>
+        <li><a href="entreprise.html" aria-current="page">En entreprise</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="veille.html">Veille technologique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cote-bas">
+      <button class="bouton-theme" type="button" hidden>Passer en thème sombre</button>
+      <p>Stage recherché du 18 janvier au 19 février 2027.</p>
+      <p><a href="https://github.com/julienhtml">GitHub</a>, <a href="https://www.linkedin.com/in/julien-saulu-328a8a35b/">LinkedIn</a></p>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="entete">
+      <h1>En entreprise</h1>
+      <p class="chapo">Mes stages et les missions que j'y réalise. Le premier s'est déroulé à l'URPS CDLN ; le prochain reste à trouver, pour janvier et février 2027.</p>
+    </div>
+
+    <section class="bloc">
+      <h2>Stage de deuxième année</h2>
+      <dl class="fiche">
+        <div><dt>Période</dt><dd>Du 18 janvier au 19 février 2027, cinq semaines</dd></div>
+        <div><dt>Domaine</dt><dd>Développement, cybersécurité, ou les deux</dd></div>
+        <div><dt>Ce que je peux apporter</dt><dd>Développement en Python, PHP et JavaScript, bases de données MySQL, relecture de code avec un regard sécurité</dd></div>
+        <div><dt>État</dt><dd><span class="etat cours">En recherche</span></dd></div>
+      </dl>
+      <div class="actions">
+        <a class="bouton plein" href="contact.html">Me proposer un stage</a>
+        <a class="bouton" href="assets/CV_Julien_Saulu.pdf" download>Télécharger mon CV (PDF)</a>
+      </div>
+    </section>
+
+    <section class="bloc" id="urps">
+      <h2>Stage de première année</h2>
+      <dl class="fiche">
+        <div><dt>Organisation</dt><dd>URPS CDLN, l'union régionale des professionnels de santé qui représente les chirurgiens-dentistes libéraux de Normandie</dd></div>
+        <div><dt>Période</dt><dd>Du 18 mai au 19 juin 2026, cinq semaines</dd></div>
+        <div><dt>Mission principale</dt><dd>Amélioration du site internet de l'organisation</dd></div>
+      </dl>
+      <ul class="lignes" style="margin-top:2rem">
+        <li>
+          <div class="gauche">
+            <h3>Amélioration du site internet</h3>
+            <span class="etat fait">Réalisé</span>
+          </div>
+          <div class="droite">
+            <p>Pendant cinq semaines, j'ai surtout travaillé sur le site internet de l'URPS : je l'ai repris et amélioré pour qu'il serve mieux les chirurgiens-dentistes qui le consultent.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!--
+      POUR AJOUTER UN STAGE OU UNE MISSION : copier cette section, la coller au-dessus de ce
+      commentaire, puis la compléter.
+
+    <section class="bloc">
+      <h2>Stage de première année</h2>
+      <dl class="fiche">
+        <div><dt>Entreprise</dt><dd>Nom de l'entreprise, ville</dd></div>
+        <div><dt>Période</dt><dd>Du … au …</dd></div>
+        <div><dt>Contexte</dt><dd>Activité de l'entreprise, service d'accueil, tuteur</dd></div>
+      </dl>
+      <ul class="lignes">
+        <li>
+          <div class="gauche">
+            <h3>Nom de la mission</h3>
+            <span class="etat fait">Réalisé</span>
+          </div>
+          <div class="droite">
+            <p>Le besoin, ce que j'ai fait, le résultat.</p>
+            <p class="techno">Technologies utilisées</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    -->
+    <footer class="pied">
+      <p>Julien Saulu, 2026. Site écrit en HTML, CSS et JavaScript, sans framework, hébergé sur GitHub Pages.</p>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
